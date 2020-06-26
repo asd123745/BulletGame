@@ -5,7 +5,7 @@ using UnityEngine;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody playerRigidbody;  //이동에 사용할 리지드바디 컴포넌트
     public float speed = 8f;  //이동 속력
@@ -30,7 +30,10 @@ using UnityEngine;
     }
     public void Die()
     {
-        //자신의 게임 오브젝트 비활성화
-        gameObject.SetActive(false);
+        gameObject.SetActive(false);
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager.EndGame();
+
     }
 }
